@@ -58,8 +58,7 @@ public class JPAPostRepository implements PostRepository {
     }
 
     private Optional<PostData> lookup(EntityManager em, Long id) throws SQLException {
-        throw new SQLException("Call this to cause the circuit breaker to trip");
-        //return Optional.ofNullable(em.find(PostData.class, id));
+        return Optional.ofNullable(em.find(PostData.class, id));
     }
 
     private Stream<PostData> select(EntityManager em) {
